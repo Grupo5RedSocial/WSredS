@@ -1,0 +1,121 @@
+package org.ws.util.entidad;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+// Individual post on the newsfeed page
+public class PostBean {
+	// Posting Author
+	private AuthorBean author;
+	
+	// Content of the post
+	private String content;
+	
+	// Content of the post
+	private String rutaImg;
+	
+	// Content of the post
+     private String tipo;
+	
+	// Content of the post
+	private Integer id_pub;
+
+	// Date/time of the post
+	private Date time;
+
+	// List of authors who liked this post
+	private List<AuthorBean> likeList	 = new ArrayList<AuthorBean>();
+	
+	// List of comments on this post
+	private List<PostBean>   commentList = new ArrayList<PostBean>();
+	
+	// Is this post liked by the current user?
+	private boolean liked = false;
+	
+	public PostBean() {
+	}
+	
+	public AuthorBean getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(AuthorBean author) {
+		this.author = author;
+	}
+	
+	public String getContent() {
+		return content;
+	}
+	
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	public String getRutaImg() {
+		return rutaImg;
+	}
+
+	public void setRutaImg(String rutaImg) {
+		this.rutaImg = rutaImg;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public Date getTime() {
+		return time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
+	}
+	
+	public List<AuthorBean> getLikeList() {
+		return likeList;
+	}
+
+	public void setLikeList(List<AuthorBean> likeList) {
+		this.likeList = likeList;
+	}
+	
+	public boolean isLiked() {
+		return this.liked;
+	}
+	
+	public void setLiked(boolean liked) {
+		this.liked = liked;
+	}
+
+	public List<PostBean> getCommentList() {
+		return commentList;
+	}
+
+	public void setCommentList(List<PostBean> commentList) {
+		this.commentList = commentList;
+	}
+
+	public int getLikeCount() {
+		return likeList.size();
+	}
+
+	public int getCommentCount() {
+		// Original post included in commentList
+		// Need to compensate
+		return commentList.size()-1;
+	}
+
+	public Integer getId_pub() {
+		return id_pub;
+	}
+
+	public void setId_pub(Integer id_pub) {
+		this.id_pub = id_pub;
+	}
+
+}
